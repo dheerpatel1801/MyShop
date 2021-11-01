@@ -13,12 +13,12 @@ namespace MyShop.Core.Models
        
         [StringLength(20)]
         [DisplayName("Product Name")]
-        public String Name { get; set; }
-        public String Description { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         [Range(0,100000)]
         public double Price { get; set; }
-        public String Category { get; set; }
-        public String Image { get; set; }
+        public string Category { get; set; }
+        public string Image { get; set; }
 
       
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -12,12 +13,24 @@ namespace MyShop.WebUI.Tests.Mocks
         private MockRequest request;
         private MockResponse response;
         private HttpCookieCollection cookies;
+        private IPrincipal Fakeuser;
 
         public MockHttpContext()
         {
             cookies = new HttpCookieCollection();
             this.request = new MockRequest(cookies);
             this.response = new MockResponse(cookies);
+        }
+        public override IPrincipal User
+        {
+            get
+            {
+                return this.Fakeuser;
+            }
+            set
+            {
+                this.Fakeuser = value;
+            }
         }
         public override HttpRequestBase Request
         {
